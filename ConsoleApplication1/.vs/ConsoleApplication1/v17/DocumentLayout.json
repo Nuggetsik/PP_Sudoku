@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\PP_PROJECT\\ConsoleApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:menu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\structs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:structs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\sound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:sound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\setting.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:setting.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\gensudoku.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:gensudoku.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|E:\\PP_PROJECT\\ConsoleApplication1\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{51FBC502-E3B0-42FC-AA8D-14DE2742EA09}|ConsoleApplication1.vcxproj|solutionrelative:functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "menu.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\menu.h",
+              "RelativeDocumentMoniker": "menu.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\menu.h",
+              "RelativeToolTip": "menu.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAcwDAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:23:34.223Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "functions.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\functions.h",
+              "RelativeDocumentMoniker": "functions.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\functions.h",
+              "RelativeToolTip": "functions.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:23:15.859Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "setting.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\setting.h",
+              "RelativeDocumentMoniker": "setting.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\setting.h",
+              "RelativeToolTip": "setting.h",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAvwOIAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:21:42.502Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "game.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\game.h",
+              "RelativeDocumentMoniker": "game.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\game.h",
+              "RelativeToolTip": "game.h",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAAF4BAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-25T10:18:45.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAADIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-06-08T12:18:25.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "define.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\define.h",
+              "RelativeDocumentMoniker": "define.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\define.h",
+              "RelativeToolTip": "define.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:23:16.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "sound.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\sound.h",
+              "RelativeDocumentMoniker": "sound.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\sound.h",
+              "RelativeToolTip": "sound.h",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwEgAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:21:35.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "structs.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\structs.h",
+              "RelativeDocumentMoniker": "structs.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\structs.h",
+              "RelativeToolTip": "structs.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-08T10:17:29.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "gensudoku.h",
+              "DocumentMoniker": "E:\\PP_PROJECT\\ConsoleApplication1\\gensudoku.h",
+              "RelativeDocumentMoniker": "gensudoku.h",
+              "ToolTip": "E:\\PP_PROJECT\\ConsoleApplication1\\gensudoku.h",
+              "RelativeToolTip": "gensudoku.h",
+              "ViewState": "AQIAAJIBAAAAAAAAAAAwwLABAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-27T12:25:21.044Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+\doxysection{functions.\+h}
+\hypertarget{functions_8h_source}{}\label{functions_8h_source}\mbox{\hyperlink{functions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structs_8h}{structs.h}}"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ FUNCTIONS}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ FUNCTIONS}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Function\ to\ display\ a\ object}}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a138f33eefa62cfd1ccfff144b1218ecf}{show}}(\textcolor{keywordtype}{char}*\ name\_file,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ ALLEGRO\_BITMAP*\ obj\ =\ al\_load\_bitmap(name\_file);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{if}\ (!obj)\ exit(-\/3);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ al\_draw\_scaled\_bitmap(obj,\ 0,\ 0,\ al\_get\_bitmap\_width(obj),\ al\_get\_bitmap\_height(obj),\ x,\ y,\ width,\ height,\ 0);}
+\DoxyCodeLine{00016\ \ \ \ \ al\_destroy\_bitmap(obj);}
+\DoxyCodeLine{00017\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Function\ to\ change\ window\ resolution}}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_ad0724123318e2617ac35773126ba028d}{change\_resolution}}(ALLEGRO\_DISPLAY*\ display,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ al\_resize\_display(display,\ width,\ height);}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Function\ to\ display\ hearts}}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_aa426cb21aa414e2b42f8e5032a201c81}{show\_heart}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ hearts[3],\ \textcolor{keywordtype}{int}\ count)}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ hearts[i].\mbox{\hyperlink{functions_8h_a138f33eefa62cfd1ccfff144b1218ecf}{show}}(hearts[i].name\_file,\ hearts[i].width,\ hearts[i].height,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ hearts[i].x,\ hearts[i].y);}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Function\ to\ draw\ the\ numpad}}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_ab0f162011ce1e9ff2988fa8e2ecc5de0}{draw\_numpad}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_n_u_m_p_a_d}{NUMPAD}}*\ \mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}})\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{functions_8h_a138f33eefa62cfd1ccfff144b1218ecf}{show}}(\mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}}[i].name\_file,\ \mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}}[i].width,\ \mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}}[i].height,\ \mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}}[i].x,\ \mbox{\hyperlink{game_8h_ab9de6249ec95e13695f1a99486a436c0}{numpad}}[i].y);}
+\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ Function\ to\ remove\ an\ element\ from\ an\ array}}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a9103e6424db429ccc7f080275ef6eb28}{remove\_element}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_c_e_l_l}{CELL}}**\ array,\ \textcolor{keywordtype}{int}\ sizeOfArray,\ \textcolor{keywordtype}{int}\ indexToRemove)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (indexToRemove\ <\ 0\ ||\ indexToRemove\ >=\ sizeOfArray)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Invalid\ index}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_e_l_l}{CELL}}*\ temp\ =\ malloc((sizeOfArray\ -\/\ 1)\ *\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_c_e_l_l}{CELL}}));}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ NULL)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Memory\ allocation\ failed}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Copy\ everything\ BEFORE\ the\ index}}
+\DoxyCodeLine{00052\ \ \ \ \ memcpy(temp,\ *array,\ indexToRemove\ *\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_c_e_l_l}{CELL}}));}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Copy\ everything\ AFTER\ the\ index}}
+\DoxyCodeLine{00055\ \ \ \ \ memcpy(temp\ +\ indexToRemove,\ *array\ +\ indexToRemove\ +\ 1,\ (sizeOfArray\ -\/\ indexToRemove\ -\/\ 1)\ *\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_c_e_l_l}{CELL}}));}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ free(*array);}
+\DoxyCodeLine{00058\ \ \ \ \ *array\ =\ temp;}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,14 @@
+﻿main.obj : error LNK2001: неразрешенный внешний символ __imp_al_init_image_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_shutdown_ttf_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_init_ttf_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_destroy_font.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_shutdown_image_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_init_font_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_load_ttf_font.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_draw_text.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_shutdown_primitives_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_init_primitives_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_shutdown_font_addon.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_draw_line.
+main.obj : error LNK2001: неразрешенный внешний символ __imp_al_get_text_width.
+E:\PP_PROJECT\ConsoleApplication1\x64\Release\ConsoleApplication1.exe : fatal error LNK1120: неразрешенных внешних элементов: 13

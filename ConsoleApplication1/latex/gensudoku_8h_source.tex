@@ -1,0 +1,444 @@
+\doxysection{gensudoku.\+h}
+\hypertarget{gensudoku_8h_source}{}\label{gensudoku_8h_source}\mbox{\hyperlink{gensudoku_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ N\ 9}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SUDOKU}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SUDOKU}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SWAP(a,\ b)\ \{\ int\ temp\ =\ a;\ a\ =\ b;\ b\ =\ temp;\ \}}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ data[3][3];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ next;}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ create\_list(\textcolor{keywordtype}{char}\ data[3][3])\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ front\ =\ (\textcolor{keyword}{struct\ }glif*)\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ glif));}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ front)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ front-\/>data[i][j]\ =\ data[i][j];}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ front-\/>next\ =\ NULL;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ front;}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ insert\_glif(\textcolor{keyword}{struct}\ glif*\ front,\ \textcolor{keywordtype}{char}\ data[3][3])\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ front)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ new\_glif\ =\ (\textcolor{keyword}{struct\ }glif*)\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ glif));}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ new\_glif)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_glif-\/>data[i][j]\ =\ data[i][j];}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ new\_glif-\/>next\ =\ front;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_glif;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ front;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ dostemp\_struct(\textcolor{keyword}{struct}\ glif*\ head,\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <=\ 0)\ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ temp\ =\ head;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ NULL)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>next;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00064\ \}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ free\_list(\textcolor{keyword}{struct}\ glif*\ head)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ current\ =\ head;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ next\ =\ NULL;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ !=\ NULL)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ next\ =\ current-\/>next;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ free(current);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ current\ =\ next;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00078\ \textcolor{comment}{void\ print\_struct(struct\ glif*\ node,\ int\ index)\ \{}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ printf("{}glif\ \%d:\(\backslash\)n"{},\ index);}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ 3;\ ++i)\ \{}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ for\ (int\ j\ =\ 0;\ j\ <\ 3;\ ++j)\ \{}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ printf("{}\%d\ "{},\ node-\/>data[i][j]-\/'0');}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ printf("{}\(\backslash\)n"{});}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ printf("{}\(\backslash\)n"{});}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00088\ \textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{comment}{void\ print\_glifs(struct\ glif*\ head,\ int\ index\ )\ \{}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ if\ (head\ ==\ NULL)\ \{}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00093\ \textcolor{comment}{}}
+\DoxyCodeLine{00094\ \textcolor{comment}{}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ print\_glifs(head-\/>next,\ index\ -\/\ 1);}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ print\_struct(head,\ index);}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00098\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dif1(\textcolor{keyword}{struct}\ glif*\ node,\textcolor{keywordtype}{int}\ dif[2])\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ i1=dif[1];}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ ++i)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ ++j)\{}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((rand()\%dif[0])\ \&\&\ i1!=0)\{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ node-\/>data[i][j]=\textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ i1-\/-\/;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ difrec(\textcolor{keyword}{struct}\ glif*\ head,\textcolor{keywordtype}{int}\ dif[2])\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (head\ ==\ NULL)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ difrec(head-\/>next,dif);}
+\DoxyCodeLine{00123\ \ \ \ \ dif1(head,dif);}
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_rand\_matrix(\textcolor{keywordtype}{char}\ array[3][3])\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{char}\ temp;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j,\ k,\ l;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ 100;\ n++)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ i\ =\ rand()\ \%\ 3;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ j\ =\ rand()\ \%\ 3;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ k\ =\ rand()\ \%\ 3;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ l\ =\ rand()\ \%\ 3;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ temp\ =\ array[i][j];}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ array[i][j]\ =\ array[k][l];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ array[k][l]\ =\ temp;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_rand\_poz(\textcolor{keywordtype}{char}\ *array,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game_8h_a439227feff9d7f55384e8780cfc2eb82}{size}})\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ temp,\ j;}
+\DoxyCodeLine{00151\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{game_8h_a439227feff9d7f55384e8780cfc2eb82}{size}}\ -\/\ 1;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ j\ =\ rand()\ \%\ (i\ +\ 1);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ temp\ =\ array[i];}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ array[i]\ =\ array[j];}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ array[j]\ =\ temp;}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ swap\_pozX(\textcolor{keywordtype}{char}\ matrix[][3],\textcolor{keywordtype}{int}\ i,\textcolor{keywordtype}{int}\ i2)}
+\DoxyCodeLine{00162\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{char}\ temp;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ temp\ =\ matrix[i][j];}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ matrix[i][j]\ =\ matrix[i2][j];}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ matrix[i2][j]\ =\ temp;}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ swap\_pozY(\textcolor{keywordtype}{char}\ matrix[][3],\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ i2)}
+\DoxyCodeLine{00174\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{char}\ temp;}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ temp\ =\ matrix[j][i];}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ matrix[j][i]\ =\ matrix[j][i2];}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ matrix[j][i2]\ =\ temp;}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ fill\_structX(\textcolor{keywordtype}{char}\ first\_array[][3],\textcolor{keyword}{struct}\ glif*\ head)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ char\ (*temp)[3]\ =\ malloc(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}[3]));}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ NULL)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Memory\ allocation\ failed"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL\ ;}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ ++i)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ ++j)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ temp[i][j]\ =\ first\_array[i][j];}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ }
+\DoxyCodeLine{00196\ \ \ \ \ swap\_pozX(temp,0,1);swap\_pozX(temp,0,2);head\ =\ insert\_glif(head,temp);}
+\DoxyCodeLine{00197\ \ \ \ \ swap\_pozX(temp,0,1);swap\_pozX(temp,0,2);head\ =\ insert\_glif(head,temp);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ free(temp);}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00203\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ fill\_structY(\textcolor{keywordtype}{char}\ first\_array[][3],\textcolor{keyword}{struct}\ glif*\ head,\textcolor{keywordtype}{char}\ temp[3][3])\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ ++i)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ ++j)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ temp[i][j]\ =\ first\_array[i][j];}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ swap\_pozY(temp,0,1);swap\_pozY(temp,0,2);head\ =\ insert\_glif(head,temp);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{00215\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }glif*\ gen\_sudoku()}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ head=NULL;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{char}\ first\_poz[3][3]\ =\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \{\textcolor{charliteral}{'1'},\ \textcolor{charliteral}{'2'},\ \textcolor{charliteral}{'3'}\},}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \{\textcolor{charliteral}{'4'},\ \textcolor{charliteral}{'5'},\ \textcolor{charliteral}{'6'}\},}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \{\textcolor{charliteral}{'7'},\ \textcolor{charliteral}{'8'},\ \textcolor{charliteral}{'9'}\}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{char}\ temp[3][3];}
+\DoxyCodeLine{00227\ \ \ \ \ set\_rand\_matrix(first\_poz);}
+\DoxyCodeLine{00228\ \ \ \ \ head=create\_list(first\_poz);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ head\ =\ fill\_structX(first\_poz,head);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ head\ =\ fill\_structY(first\_poz,head,temp);}
+\DoxyCodeLine{00235\ \ \ \ \ head\ =\ fill\_structX(temp,head);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ head\ =\ fill\_structY(temp,head,temp);}
+\DoxyCodeLine{00239\ \ \ \ \ head\ =\ fill\_structX(temp,head);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{/*\ \ \ \ head\ =\ diffecult(head,5);*/}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{//difrec(head);}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{return}\ head;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gensudoku_8h_a442c9c84731a60fda629783f08c190a5}{sudmatrix}}(\textcolor{comment}{/*int\ (*arr2D)[9],*/}\textcolor{keywordtype}{int}\ (*arr)[9],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[2])}
+\DoxyCodeLine{00250\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ temp\ =\ NULL;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{struct\ }glif*\ head\ =\ gen\_sudoku();}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ 9;\ i++)\ \{}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ \ \ \ \ \ \ temp\ =\ dostemp\_struct(head,\ i\ +\ 1);}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ \ \ \ \ \ \ \ for\ (int\ j\ =\ 0;\ j\ <\ 9;\ j++)\ \{}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (j\ <\ 3)\ \{}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr2D[i][j]\ =\ temp-\/>data[0][j]\ -\/\ '0';}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ else\ if\ (j\ <\ 6)\ \{}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr2D[i][j]\ =\ temp-\/>data[1][j\ -\/\ 3]\ -\/\ '0';}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ else\ \{}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr2D[i][j]\ =\ temp-\/>data[2][j\ -\/\ 6]\ -\/\ '0';}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00269\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00270\ \ \ \ \ }
+\DoxyCodeLine{00271\ \ \ \ \ difrec(head,\mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}});}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ kosc[9]\ =\ \{\ 1,2,3,4,5,6,7,8,9,\ \};}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ \ \ \ //\ Алгоритм\ Фишера-\/Йетса}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ \ \ \ for\ (int\ i\ =\ 8;\ i\ >\ 0;\ i-\/-\/)\ \{}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ int\ j\ =\ rand()\ \%\ (i\ +\ 1);}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ \ \ \ \ \ \ \ SWAP(kosc[i],\ kosc[j]);}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 9;\ i++)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ temp\ =\ dostemp\_struct(head,\ kosc[i]);}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 9;\ j++)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ 3)\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[i][j]\ =\ temp-\/>data[0][j]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (j\ <\ 6)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[i][j]\ =\ temp-\/>data[1][j\ -\/\ 3]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[i][j]\ =\ temp-\/>data[2][j\ -\/\ 6]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ free\_list(head);}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \}}
+\DoxyCodeLine{00304\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_col(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ arr[9][9],\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ x,\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00305\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{int}\ temp=arr[x][y];}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<9;i++)}
+\DoxyCodeLine{00308\ \ \ \ \ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i==y)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ arr[x][i])}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00316\ \}}
+\DoxyCodeLine{00317\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_row(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ arr[9][9],\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ x,\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00318\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{int}\ temp=arr[x][y];}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<9;i++)}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i==x)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ arr[i][y])}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00327\ \ \ \ \ \}}
+\DoxyCodeLine{00328\ \ \ \ \ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00330\ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_poz(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ arr[9][9],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00333\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{int}\ px,\ py;}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ arr[x][y];}
+\DoxyCodeLine{00336\ \ \ \ \ px\ =\ x\ \%\ 3;}
+\DoxyCodeLine{00337\ \ \ \ \ py\ =\ y\ \%\ 3;}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ px;\ i\ <\ 9;\ i\ +=\ 3)\textcolor{comment}{//x-\/>3}}
+\DoxyCodeLine{00339\ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ py;\ j\ <\ 9;\ j\ +=\ 3)\textcolor{comment}{//y-\/>3}}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ ==\ i\ \&\&\ y\ ==\ j)}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ arr[i][j])\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_square(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ arr[9][9],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00353\ \{}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{int}\ px,\ py;}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ arr[x][y];}
+\DoxyCodeLine{00357\ \ \ \ \ px\ =\ x\ -\/\ x\ \%\ 3;}
+\DoxyCodeLine{00358\ \ \ \ \ py\ =\ y\ -\/\ y\ \%\ 3;}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{00360\ \ \ \ \ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ j++)}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((px\ +\ i)\ ==\ x\ \&\&\ (py\ +\ j)\ ==\ y)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (temp\ ==\ arr[px\ +\ i][py\ +\ j])\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{gensudoku_8h_a2ed47793150fe397a8da37d76b58cf7b}{is\_true}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ arr[9][9],\textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ x,\textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ y)\textcolor{comment}{//dla\ wykorzystania\ wpisujesz\ tablice\ i\ nachodzenia\ o\ takich\ indeksach\ w\ tablice\ wybranej\ komurki}}
+\DoxyCodeLine{00376\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_row(arr,\ x,\ y)\ \&\&\ is\_col(arr,\ x,\ y)\ \&\&\ is\_square(arr,\ x,\ y)\ \&\&\ is\_poz(arr,\ x,\ y))}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{comment}{//\ Функция для\ поиска пустой клетки}}
+\DoxyCodeLine{00384\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{gensudoku_8h_a0ad5c11f3a87c58914b16e386ee71de4}{findEmptyCell}}(\textcolor{keywordtype}{int}\ grid[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}],\ \textcolor{keywordtype}{int}*\ row,\ \textcolor{keywordtype}{int}*\ col)\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordflow}{for}\ (*row\ =\ 0;\ *row\ <\ \mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}};\ (*row)++)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (*col\ =\ 0;\ *col\ <\ \mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}};\ (*col)++)\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (grid[*row][*col]\ ==\ 0)\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00393\ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{comment}{//\ Функция для\ решения\ Судоку}}
+\DoxyCodeLine{00396\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}{solveSudoku}}(\textcolor{keywordtype}{int}\ grid[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}])\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ col;}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{comment}{//\ Если нет\ пустых клеток,\ решение\ найдено}}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{gensudoku_8h_a0ad5c11f3a87c58914b16e386ee71de4}{findEmptyCell}}(grid,\ \&row,\ \&col))\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00402\ \ \ \ \ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{comment}{//\ Перебор всех возможных\ чисел для вставки}}
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ num\ =\ 1;\ num\ <=\ \mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}};\ num++)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ grid[row][col]\ =\ num;}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gensudoku_8h_a2ed47793150fe397a8da37d76b58cf7b}{is\_true}}(grid,\ row,\ col))\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Рекурсивный вызов\ для\ следующей клетки}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}{solveSudoku}}(grid))\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Если вставка num\ не приводит к решению,\ откат}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ grid[row][col]\ =\ 0;}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gensudoku_8h_aa8dd5974d49f1c06bc7a186a9e2a820d}{checkSudokuHints}}(\textcolor{keywordtype}{int}\ grid[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}],\ \textcolor{keywordtype}{int}\ rowCell,\ \textcolor{keywordtype}{int}\ \ colCell)\ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{int}\ gridMask[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<9;i++)}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 9;\ j++)}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ gridMask[i][j]\ =\ grid[i][j];}
+\DoxyCodeLine{00424\ \ \ \ \ \mbox{\hyperlink{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}{solveSudoku}}(gridMask);}
+\DoxyCodeLine{00425\ \ \ \ \ grid[rowCell][colCell]\ =\ gridMask[rowCell][colCell];}
+\DoxyCodeLine{00426\ \}}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{gensudoku_8h_a09fbe81d2ff9d579dd873d18969adad4}{checkSudoku}}(\textcolor{keywordtype}{int}\ grid[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}],\ \textcolor{keywordtype}{int}\ rowCell,\ \textcolor{keywordtype}{int}\ \ colCell)\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{int}\ gridMask[\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}][\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 9;\ j++)}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ gridMask[i][j]\ =\ grid[i][j];}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}{solveSudoku}}(gridMask);}
+\DoxyCodeLine{00434\ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ }
+
+\end{DoxyCode}

@@ -1,0 +1,87 @@
+\doxysection{sound.\+h File Reference}
+\hypertarget{sound_8h}{}\label{sound_8h}\index{sound.h@{sound.h}}
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}define.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+audio.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+acodec.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sound_8h_a70e1988280d4af23c1e1a6187031ea61}{rand\+\_\+sound}} ()
+\item 
+void \mbox{\hyperlink{sound_8h_a16916c709b3c3542d34a55dd0b3e5f81}{init\+\_\+sound}} ()
+\item 
+void \mbox{\hyperlink{sound_8h_a1890686ce281dfe5d6638e034483d52f}{check\+\_\+song\+\_\+finished}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ALLEGRO\+\_\+\+SAMPLE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}} = NULL
+\item 
+ALLEGRO\+\_\+\+SAMPLE\+\_\+\+INSTANCE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{song\+Instance}} = NULL
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}} \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{sound_8h_adb525ab699d6b520bada3eea859566d5}{len\+\_\+song}} = sizeof(\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}}) / sizeof(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sound_8h_a1890686ce281dfe5d6638e034483d52f}\index{sound.h@{sound.h}!check\_song\_finished@{check\_song\_finished}}
+\index{check\_song\_finished@{check\_song\_finished}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{check\_song\_finished()}{check\_song\_finished()}}
+{\footnotesize\ttfamily \label{sound_8h_a1890686ce281dfe5d6638e034483d52f} 
+void check\+\_\+song\+\_\+finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sound_8h_a16916c709b3c3542d34a55dd0b3e5f81}\index{sound.h@{sound.h}!init\_sound@{init\_sound}}
+\index{init\_sound@{init\_sound}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{init\_sound()}{init\_sound()}}
+{\footnotesize\ttfamily \label{sound_8h_a16916c709b3c3542d34a55dd0b3e5f81} 
+void init\+\_\+sound (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sound_8h_a70e1988280d4af23c1e1a6187031ea61}\index{sound.h@{sound.h}!rand\_sound@{rand\_sound}}
+\index{rand\_sound@{rand\_sound}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{rand\_sound()}{rand\_sound()}}
+{\footnotesize\ttfamily \label{sound_8h_a70e1988280d4af23c1e1a6187031ea61} 
+void rand\+\_\+sound (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{sound_8h_adb525ab699d6b520bada3eea859566d5}\index{sound.h@{sound.h}!len\_song@{len\_song}}
+\index{len\_song@{len\_song}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{len\_song}{len\_song}}
+{\footnotesize\ttfamily \label{sound_8h_adb525ab699d6b520bada3eea859566d5} 
+int len\+\_\+song = sizeof(\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}}) / sizeof(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}})}
+
+\Hypertarget{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}\index{sound.h@{sound.h}!song@{song}}
+\index{song@{song}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{song}{song}}
+{\footnotesize\ttfamily \label{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b} 
+ALLEGRO\+\_\+\+SAMPLE\texorpdfstring{$\ast$}{*} song = NULL}
+
+\Hypertarget{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}\index{sound.h@{sound.h}!songInstance@{songInstance}}
+\index{songInstance@{songInstance}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{songInstance}{songInstance}}
+{\footnotesize\ttfamily \label{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b} 
+ALLEGRO\+\_\+\+SAMPLE\+\_\+\+INSTANCE\texorpdfstring{$\ast$}{*} song\+Instance = NULL}
+
+\Hypertarget{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}\index{sound.h@{sound.h}!songs@{songs}}
+\index{songs@{songs}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{songs}{songs}}
+{\footnotesize\ttfamily \label{sound_8h_ad0bf4fe84ad2c452b03494aa89148939} 
+char\texorpdfstring{$\ast$}{*} songs\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}23.Upgrade\_Station.ogg"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}IGGY\_WALK.ogg"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}JoJo's\ Bizarre\ Adventure\_\ Diamond\ is\ Unbreakable\ OST\ -\/\ The\ Stardust\ Man\ Appears.ogg"{}},\ }
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}JoJo's\ Bizarre\ Adventure\_\ Stardust\ Crusaders\ OST\ -\/\ Setting\ Off.ogg"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}OST\ Stardust\ Crusaders\ [World]\ Track\ 19\ -\/\ Travelers\ Who\ Rest.ogg"{}},\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

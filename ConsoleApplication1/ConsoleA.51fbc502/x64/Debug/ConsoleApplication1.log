@@ -1,0 +1,5 @@
+﻿  main.c
+E:\PP_PROJECT\ConsoleApplication1\sound.h(59,15): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+E:\PP_PROJECT\ConsoleApplication1\setting.h(239,53): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+E:\PP_PROJECT\ConsoleApplication1\gensudoku.h(378,17): warning C4090: функция: разные квалификаторы "const"
+  ConsoleApplication1.vcxproj -> E:\PP_PROJECT\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

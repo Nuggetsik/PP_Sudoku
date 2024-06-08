@@ -1,0 +1,85 @@
+\doxysection{gensudoku.\+h File Reference}
+\hypertarget{gensudoku_8h}{}\label{gensudoku_8h}\index{gensudoku.h@{gensudoku.h}}
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries glif}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}~9
+\item 
+\#define \mbox{\hyperlink{gensudoku_8h_aac9153aee4bdb92701df902e06a74eb3}{SWAP}}(a,  b)~\{ int temp = a; a = b; b = temp; \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gensudoku_8h_a442c9c84731a60fda629783f08c190a5}{sudmatrix}} (int(\texorpdfstring{$\ast$}{*}arr)\mbox{[}9\mbox{]}, const int \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}\mbox{[}2\mbox{]})
+\item 
+bool \mbox{\hyperlink{gensudoku_8h_a2ed47793150fe397a8da37d76b58cf7b}{is\+\_\+true}} (const int arr\mbox{[}9\mbox{]}\mbox{[}9\mbox{]}, const short int x, const short int y)
+\item 
+bool \mbox{\hyperlink{gensudoku_8h_a0ad5c11f3a87c58914b16e386ee71de4}{find\+Empty\+Cell}} (int grid\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}, int \texorpdfstring{$\ast$}{*}row, int \texorpdfstring{$\ast$}{*}col)
+\item 
+bool \mbox{\hyperlink{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}{solve\+Sudoku}} (int grid\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]})
+\item 
+void \mbox{\hyperlink{gensudoku_8h_aa8dd5974d49f1c06bc7a186a9e2a820d}{check\+Sudoku\+Hints}} (int grid\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}, int row\+Cell, int col\+Cell)
+\item 
+bool \mbox{\hyperlink{gensudoku_8h_a09fbe81d2ff9d579dd873d18969adad4}{check\+Sudoku}} (int grid\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}\mbox{[}\mbox{\hyperlink{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}{N}}\mbox{]}, int row\+Cell, int col\+Cell)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4}\index{gensudoku.h@{gensudoku.h}!N@{N}}
+\index{N@{N}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a0240ac851181b84ac374872dc5434ee4} 
+\#define N~9}
+
+\Hypertarget{gensudoku_8h_aac9153aee4bdb92701df902e06a74eb3}\index{gensudoku.h@{gensudoku.h}!SWAP@{SWAP}}
+\index{SWAP@{SWAP}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{SWAP}{SWAP}}
+{\footnotesize\ttfamily \label{gensudoku_8h_aac9153aee4bdb92701df902e06a74eb3} 
+\#define SWAP(\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})~\{ int temp = a; a = b; b = temp; \}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gensudoku_8h_a09fbe81d2ff9d579dd873d18969adad4}\index{gensudoku.h@{gensudoku.h}!checkSudoku@{checkSudoku}}
+\index{checkSudoku@{checkSudoku}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{checkSudoku()}{checkSudoku()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a09fbe81d2ff9d579dd873d18969adad4} 
+bool check\+Sudoku (\begin{DoxyParamCaption}\item[{int}]{grid}{\mbox{[}\+N\mbox{]}\mbox{[}\+N\mbox{]}, }\item[{int}]{row\+Cell}{, }\item[{int}]{col\+Cell}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gensudoku_8h_aa8dd5974d49f1c06bc7a186a9e2a820d}\index{gensudoku.h@{gensudoku.h}!checkSudokuHints@{checkSudokuHints}}
+\index{checkSudokuHints@{checkSudokuHints}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{checkSudokuHints()}{checkSudokuHints()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_aa8dd5974d49f1c06bc7a186a9e2a820d} 
+void check\+Sudoku\+Hints (\begin{DoxyParamCaption}\item[{int}]{grid}{\mbox{[}\+N\mbox{]}\mbox{[}\+N\mbox{]}, }\item[{int}]{row\+Cell}{, }\item[{int}]{col\+Cell}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gensudoku_8h_a0ad5c11f3a87c58914b16e386ee71de4}\index{gensudoku.h@{gensudoku.h}!findEmptyCell@{findEmptyCell}}
+\index{findEmptyCell@{findEmptyCell}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{findEmptyCell()}{findEmptyCell()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a0ad5c11f3a87c58914b16e386ee71de4} 
+bool find\+Empty\+Cell (\begin{DoxyParamCaption}\item[{int}]{grid}{\mbox{[}\+N\mbox{]}\mbox{[}\+N\mbox{]}, }\item[{int \texorpdfstring{$\ast$}{*}}]{row}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{col}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gensudoku_8h_a2ed47793150fe397a8da37d76b58cf7b}\index{gensudoku.h@{gensudoku.h}!is\_true@{is\_true}}
+\index{is\_true@{is\_true}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{is\_true()}{is\_true()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a2ed47793150fe397a8da37d76b58cf7b} 
+bool is\+\_\+true (\begin{DoxyParamCaption}\item[{const int}]{arr}{\mbox{[}9\mbox{]}\mbox{[}9\mbox{]}, }\item[{const short int}]{x}{, }\item[{const short int}]{y}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4}\index{gensudoku.h@{gensudoku.h}!solveSudoku@{solveSudoku}}
+\index{solveSudoku@{solveSudoku}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{solveSudoku()}{solveSudoku()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a984f3c973edb32c680b2f42e810c81a4} 
+bool solve\+Sudoku (\begin{DoxyParamCaption}\item[{int}]{grid}{\mbox{[}\+N\mbox{]}\mbox{[}\+N\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{gensudoku_8h_a442c9c84731a60fda629783f08c190a5}\index{gensudoku.h@{gensudoku.h}!sudmatrix@{sudmatrix}}
+\index{sudmatrix@{sudmatrix}!gensudoku.h@{gensudoku.h}}
+\doxysubsubsection{\texorpdfstring{sudmatrix()}{sudmatrix()}}
+{\footnotesize\ttfamily \label{gensudoku_8h_a442c9c84731a60fda629783f08c190a5} 
+void sudmatrix (\begin{DoxyParamCaption}\item[{int(\texorpdfstring{$\ast$}{*})}]{arr}{\mbox{[}9\mbox{]}, }\item[{const int}]{difficult}{\mbox{[}2\mbox{]}}\end{DoxyParamCaption})}
+

@@ -1,0 +1,239 @@
+\doxysection{menu.\+h}
+\hypertarget{menu_8h_source}{}\label{menu_8h_source}\mbox{\hyperlink{menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structs_8h}{structs.h}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{functions_8h}{functions.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{define_8h}{define.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game_8h}{game.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sound_8h}{sound.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SAVE\_FILE\ "{}save.dat"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_font.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_ttf.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_image.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ MENU}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MENU}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}{displayMenu}}(ALLEGRO\_BITMAP*\ background,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_start,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_continue,\ \textcolor{keywordtype}{bool}\ continue\_flag,\ ALLEGRO\_FONT*\ font,\ \textcolor{keywordtype}{int}\ text\_width,\ \textcolor{keywordtype}{char}\ *text)}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Draw\ background}}
+\DoxyCodeLine{00021\ \ \ \ \ al\_draw\_scaled\_bitmap(background,\ 0,\ 0,\ al\_get\_bitmap\_width(background),\ al\_get\_bitmap\_height(background),\ 0,\ 0,\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}},\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}},\ 0);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Show\ start\ button}}
+\DoxyCodeLine{00024\ \ \ \ \ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}(b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}},\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}},\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}},\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}},\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Draw\ game\ name\ text}}
+\DoxyCodeLine{00027\ \ \ \ \ al\_draw\_text(font,\ al\_map\_rgb(0,\ 0,\ 0),\ (\mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ -\/\ text\_width)\ /\ 2,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 4,\ 0,\ text);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Show\ continue\ button\ if\ continue\_flag\ is\ true}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (continue\_flag)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}(b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}},\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}},\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}},\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}},\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ al\_flip\_display();}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a954b4e30239be4e27fa017e9ce397f11}{displayDiffucult}}(ALLEGRO\_BITMAP*\ background,\ ALLEGRO\_FONT*\ font,\ \textcolor{keywordtype}{int}\ text\_width,\ \textcolor{keywordtype}{char}*\ text,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_easy,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_mid,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_hard)}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Draw\ background}}
+\DoxyCodeLine{00040\ \ \ \ \ al\_draw\_scaled\_bitmap(background,\ 0,\ 0,\ al\_get\_bitmap\_width(background),\ al\_get\_bitmap\_height(background),\ 0,\ 0,\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}},\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}},\ 0);}
+\DoxyCodeLine{00041\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Draw\ game\ name\ text}}
+\DoxyCodeLine{00043\ \ \ \ \ al\_draw\_text(font,\ al\_map\_rgb(0,\ 0,\ 0),\ (\mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ -\/\ text\_width)\ /\ 2,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 4,\ 0,\ text);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//Difficulty\ level}}
+\DoxyCodeLine{00046\ \ \ \ \ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}(b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}},\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}},\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}},\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}},\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}});}
+\DoxyCodeLine{00047\ \ \ \ \ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}(b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}},\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}},\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}},\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}},\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}});}
+\DoxyCodeLine{00048\ \ \ \ \ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}(b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}},\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}},\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}},\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}},\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ al\_flip\_display();}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Function\ to\ check\ if\ there\ is\ a\ save}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a0964406653eefe0d9a95106a22ec55cf}{checkEmptyFile}}(\textcolor{keywordtype}{bool}\ *continue\_flag)}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00057\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}save.dat"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ !=\ NULL)\ \textcolor{comment}{//If\ the\ file\ is\ not\ empty}}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ fseek(fp,\ 0,\ SEEK\_END);\ \textcolor{comment}{//Moving\ the\ file\ pointer\ to\ the\ end}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fsize\ =\ ftell(fp);\ \ \textcolor{comment}{//Getting\ the\ current\ pointer\ position\ (file\ size)}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fsize\ >\ 0)\ \ \textcolor{comment}{//\ File\ size\ check}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ *continue\_flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ *continue\_flag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//Update\ button\ layout\ and\ size\ based\ on\ screen\ size}}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_aed29d5ad036dae41588231a9c11cc024}{resizing}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ *b\_start,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ *b\_continue,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ *b\_easy,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ *b\_mid,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}*\ b\_hard)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00074\ \ \ \ \ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 1.25\ -\/\ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ /\ 2\ -\/\ 50;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ b\_continue-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}};}
+\DoxyCodeLine{00077\ \ \ \ \ b\_continue-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}/9;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00080\ \ \ \ \ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 1.25\ -\/\ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ /\ 2\ -\/\ 100;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00083\ \ \ \ \ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 9;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ b\_hard-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_hard-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00086\ \ \ \ \ b\_hard-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 9;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ =\ b\_continue-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ =\ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ =\ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ =\ b\_hard-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ b\_start-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ =\ b\_continue-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ =\ b\_easy-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ =\ b\_mid-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ =\ b\_hard-\/>\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ =\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11;}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ Function\ for\ the\ menu}}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menu_8h_afe50b40f56a09559ba37d8106f30c32c}{menu}}(ALLEGRO\_DISPLAY*\ display,\ ALLEGRO\_EVENT\_QUEUE*\ event\_queue)}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ ALLEGRO\_EVENT\ event;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Load\ font}}
+\DoxyCodeLine{00099\ \ \ \ \ ALLEGRO\_FONT*\ font\ =\ al\_load\_ttf\_font(\textcolor{stringliteral}{"{}Tenada.ttf"{}},\ \mbox{\hyperlink{define_8h_abe9b5235b69bce223dfe4d179edf9698}{SIZE\_FONT}},\ 0);}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font)\ exit(-\/\ 2);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ Load\ background\ image}}
+\DoxyCodeLine{00103\ \ \ \ \ ALLEGRO\_BITMAP*\ background\ =\ al\_load\_bitmap(\textcolor{stringliteral}{"{}image/menu\_bg.png"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (!background)\ exit(-\/3);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Define\ start\ button}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_start\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}})\{\ \textcolor{stringliteral}{"{}image/start.png"{}},\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11,\ 0,\ 0,\ \mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}\ \};}
+\DoxyCodeLine{00108\ \ \ \ \ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00109\ \ \ \ \ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 1.25\ -\/\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ /\ 2\ -\/\ 50;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ Define\ continue\ button}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_continue\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}})\{\ \textcolor{stringliteral}{"{}image/continue.png"{}},\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11,\ 0,\ 0,\ \mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}\ \};}
+\DoxyCodeLine{00113\ \ \ \ \ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}};}
+\DoxyCodeLine{00114\ \ \ \ \ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ 80;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//Difficulty\ buttons}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_easy\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}})\{\ \textcolor{stringliteral}{"{}image/easy.png"{}},\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11,\ 0,\ 0,\ \mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}\ \};}
+\DoxyCodeLine{00118\ \ \ \ \ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00119\ \ \ \ \ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 1.25\ -\/\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}\ /\ 2\ -\/\ 100;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_mid\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}})\{\ \textcolor{stringliteral}{"{}image/mid.png"{}},\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11,\ 0,\ 0,\ \mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}\ \};}
+\DoxyCodeLine{00122\ \ \ \ \ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00123\ \ \ \ \ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ 80;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}\ b\_hard\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}})\{\ \textcolor{stringliteral}{"{}image/hard.png"{}},\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 5,\ \mbox{\hyperlink{define_8h_affa487e8e3cc48473cfc05c0ce0165e9}{H}}\ /\ 11,\ 0,\ 0,\ \mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}}\ \};}
+\DoxyCodeLine{00126\ \ \ \ \ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ =\ \mbox{\hyperlink{define_8h_a2dd51e03005d5cb52315290d27f61870}{W}}\ /\ 2\ -\/\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}}\ /\ 2;}
+\DoxyCodeLine{00127\ \ \ \ \ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ =\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ 80;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{char}\ text[]\ =\ \textcolor{stringliteral}{"{}Sudoku"{}};\ \textcolor{comment}{//\ Text\ displayed\ on\ the\ screen\ (game\ name)}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ text\_width\ =\ al\_get\_text\_width(font,\ text);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ finish\ =\ \textcolor{keyword}{false};\ \ \ \ \textcolor{comment}{//End-\/of-\/game\ flag}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ continue\_flag\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \textcolor{comment}{//Flag\ for\ the\ "{}Continue"{}\ button}}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{menu_8h_a0964406653eefe0d9a95106a22ec55cf}{checkEmptyFile}}(\&continue\_flag);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Check\ if\ there\ is\ a\ game\ save\ to\ continue\ the\ game}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ start\_game\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Flag\ that\ the\ game\ has\ begun}}
+\DoxyCodeLine{00137\ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ displayDifficult\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Flag\ to\ display\ the\ difficulty\ level\ buttons}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ chosenDifficult\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Flag\ signaling\ that\ the\ difficulty\ level\ has\ been\ selected}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}{displayMenu}}(background,\ b\_start,\ b\_continue,\ continue\_flag,\ font,\ text\_width,\ text);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Displaying\ the\ menu\ interface}}
+\DoxyCodeLine{00142\ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{while}\ (!finish)}
+\DoxyCodeLine{00144\ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ al\_wait\_for\_event(event\_queue,\ \&event);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ event}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event.type\ ==\ ALLEGRO\_EVENT\_DISPLAY\_CLOSE)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ finish\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mouse\ button\ down\ event}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event.type\ ==\ ALLEGRO\_EVENT\_MOUSE\_BUTTON\_DOWN)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event.mouse.button\ \&\ 1)}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \textcolor{keyword}{event}.mouse.x;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ \textcolor{keyword}{event}.mouse.y;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!displayDifficult)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ start\ button\ is\ clicked}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ \&\&\ x\ <\ (b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ +\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}})\ \&\&\ y\ >=\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ \&\&\ y\ <\ (b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ b\_start.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}))}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ continue\_flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_a954b4e30239be4e27fa017e9ce397f11}{displayDiffucult}}(background,\ font,\ text\_width,\ text,\ b\_easy,\ b\_mid,\ b\_hard);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayDifficult\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (continue\_flag)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ continue\ button\ is\ clicked}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ \&\&\ x\ <\ (b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ +\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}})\ \&\&\ y\ >=\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ \&\&\ y\ <\ (b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ b\_continue.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}))}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exit\_game\ =\ \mbox{\hyperlink{game_8h_a9f160fc422a2d3194799c40de353a5e0}{game}}(display,\ event\_queue,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exit\_game)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ finish\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_a0964406653eefe0d9a95106a22ec55cf}{checkEmptyFile}}(\&continue\_flag);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}{displayMenu}}(background,\ b\_start,\ b\_continue,\ continue\_flag,\ font,\ text\_width,\ text);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ difficulty}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ \&\&\ x\ <\ (b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ +\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}})\ \&\&\ y\ >=\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ \&\&\ y\ <\ (b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ b\_easy.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}))}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[0]\ =\ 3;\ \textcolor{comment}{//Shance}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[1]\ =\ 4;\ \textcolor{comment}{//Number\ empty\ cell}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chosenDifficult\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Set\ the\ flag\ signaling\ the\ selection\ of\ the\ difficulty\ level}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ \&\&\ x\ <\ (b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ +\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}})\ \&\&\ y\ >=\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ \&\&\ y\ <\ (b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ b\_mid.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}))}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[0]\ =\ 3;\ \ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[1]\ =\ 5;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chosenDifficult\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Set\ the\ flag\ that\ signals\ the\ selection\ of\ the\ difficulty\ level}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ \&\&\ x\ <\ (b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}}\ +\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}})\ \&\&\ y\ >=\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ \&\&\ y\ <\ (b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}}\ +\ b\_hard.\mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}}))}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[0]\ =\ 4;\ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_ae57850c99a7ddfc0bdb0cd9136066638}{difficult}}[1]\ =\ 6;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chosenDifficult\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Set\ the\ flag\ signaling\ the\ selection\ of\ the\ difficulty\ level}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chosenDifficult)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exit\_game\ =\ \mbox{\hyperlink{game_8h_a9f160fc422a2d3194799c40de353a5e0}{game}}(display,\ event\_queue,\ \textcolor{keyword}{false});\ \textcolor{comment}{//\ Start\ the\ game\ with\ the\ selected\ difficulty\ level}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ game\ closes}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exit\_game)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ finish\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Back\ to\ the\ menu}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_aed29d5ad036dae41588231a9c11cc024}{resizing}}(\&b\_start,\ \&b\_continue,\ \&b\_easy,\ \&b\_mid,\ \&b\_hard);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_a0964406653eefe0d9a95106a22ec55cf}{checkEmptyFile}}(\&continue\_flag);\ \textcolor{comment}{//Check\ if\ there's\ a\ save}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}{displayMenu}}(background,\ b\_start,\ b\_continue,\ continue\_flag,\ font,\ text\_width,\ text);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayDifficult\ \ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Resetting\ the\ flag\ for\ displaying\ difficulty\ levels}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chosenDifficult\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Resetting\ the\ flag\ of\ the\ selected\ difficulty\ level}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ al\_destroy\_font(font);}
+\DoxyCodeLine{00230\ \ \ \ \ al\_destroy\_bitmap(background);}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00232\ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,48 @@
+\doxysection{structs.\+h}
+\hypertarget{structs_8h_source}{}\label{structs_8h_source}\mbox{\hyperlink{structs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STRUCTS}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STRUCTS}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Structures}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Global\ structure\ for\ objects}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_o_b_j_e_c_t_aff3662c1b59b9ab6c135aa2ea6128859}{name\_file}}[50];\ \ \ \ \ \textcolor{comment}{//\ Path\ to\ the\ image}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_o_b_j_e_c_t_ae426f00e82704fa09578f5446e22d915}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Button\ width}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_o_b_j_e_c_t_a48083b65ac9a863566dc3e3fff09a5b4}{height}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Button\ height}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_o_b_j_e_c_t_ad0da36b2558901e21e7a30f6c227a45e}{x}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Coordinates}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_o_b_j_e_c_t_aa4f0d3eebc3c443f9be81bf48561a217}{y}};}
+\DoxyCodeLine{00014\ \ \ \ \ void\ (*\mbox{\hyperlink{struct_o_b_j_e_c_t_abfe055ea4990d239ef07c674b7bb040c}{show}})(\textcolor{keywordtype}{char}*,\ float,\ float,\ int,\ int);\ \ \textcolor{comment}{//\ Pointer\ to\ a\ function\ show}}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Structure\ for\ cells}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_e_l_l}{CELL}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}};\ \ \ \textcolor{comment}{//\ Inheriting\ properties\ from\ OBJECT}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_e_l_l_a061459acc9e078fa4699e0e349887215}{rows}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Row\ index}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_e_l_l_a60dae4c6e78188cd718b696e4f08fc71}{column}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Column\ index}}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Structure\ for\ numpad\ buttons}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_u_m_p_a_d}{NUMPAD}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}};\ \ \textcolor{comment}{//\ Inheriting\ properties\ from\ OBJECT}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_n_u_m_p_a_d_a86cf672daa4e0ad11ad10efc894d19c8}{num}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Button\ number}}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Structure\ for\ storing\ game\ state}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_state}{GameState}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_a75ecd687a9fc1042aa3ca4233f4fbbfa}{matrix\_area}}[9][9];\ \textcolor{comment}{//\ Game\ field}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_ab557fee5e49a2c2bcdf8803d25b464fb}{hints}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_a9c3f03facbfdcf99387f7541728499ae}{hearts}};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_ad169f26a590651c55ea4d0752da6b81f}{minutes}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_a80e55751b5189962ec3ce0f0a764772b}{seconds}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_game_state_a79ea20dcf2dbb8e18797e295b7fa7778}{time\_count}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ Add\ other\ variables\ to\ be\ stored}}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

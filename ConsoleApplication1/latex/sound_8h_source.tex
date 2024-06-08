@@ -1,0 +1,93 @@
+\doxysection{sound.\+h}
+\hypertarget{sound_8h_source}{}\label{sound_8h_source}\mbox{\hyperlink{sound_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <allegro5/allegro5.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{define_8h}{define.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SOUND}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SOUND}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_audio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <allegro5/allegro\_acodec.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Pointer\ to\ the\ current\ audio\ sample}}
+\DoxyCodeLine{00012\ ALLEGRO\_SAMPLE*\ \mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}}\ =\ NULL;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Pointer\ to\ an\ instance\ of\ the\ audio\ sample}}
+\DoxyCodeLine{00015\ ALLEGRO\_SAMPLE\_INSTANCE*\ \mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}}\ =\ NULL;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Array\ of\ paths\ to\ audio\ files}}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}}[]\ =\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{stringliteral}{"{}23.Upgrade\_Station.ogg"{}},}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{stringliteral}{"{}IGGY\_WALK.ogg"{}},}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{stringliteral}{"{}JoJo's\ Bizarre\ Adventure\_\ Diamond\ is\ Unbreakable\ OST\ -\/\ The\ Stardust\ Man\ Appears.ogg"{}},\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{stringliteral}{"{}JoJo's\ Bizarre\ Adventure\_\ Stardust\ Crusaders\ OST\ -\/\ Setting\ Off.ogg"{}},}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{stringliteral}{"{}OST\ Stardust\ Crusaders\ [World]\ Track\ 19\ -\/\ Travelers\ Who\ Rest.ogg"{}},\ }
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Number\ of\ audio\ files}}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sound_8h_adb525ab699d6b520bada3eea859566d5}{len\_song}}\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}})\ /\ \textcolor{keyword}{sizeof}(*\mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sound_8h_a70e1988280d4af23c1e1a6187031ea61}{rand\_sound}}()\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Selecting\ a\ random\ track}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ numSong\ =\ rand()\ \%\ \mbox{\hyperlink{sound_8h_adb525ab699d6b520bada3eea859566d5}{len\_song}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Copy\ the\ path\ to\ the\ selected\ track\ to\ nameSong}}
+\DoxyCodeLine{00034\ \ \ \ \ strcpy(\mbox{\hyperlink{define_8h_a68905744a514cb5b6fab0980bede064f}{nameSong}},\ \mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}}[numSong]);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ strlen(\mbox{\hyperlink{define_8h_a68905744a514cb5b6fab0980bede064f}{nameSong}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ >\ 4)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{define_8h_a68905744a514cb5b6fab0980bede064f}{nameSong}}[len\ -\/\ 4]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Forming\ the\ full\ path\ to\ the\ file}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ path[256];}
+\DoxyCodeLine{00041\ \ \ \ \ snprintf(path,\ \textcolor{keyword}{sizeof}(path),\ \textcolor{stringliteral}{"{}sounds/songs/\%s"{}},\ \mbox{\hyperlink{sound_8h_ad0bf4fe84ad2c452b03494aa89148939}{songs}}[numSong]);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Loading\ a\ new\ audio\ file}}
+\DoxyCodeLine{00044\ \ \ \ \ ALLEGRO\_SAMPLE*\ new\_song\ =\ al\_load\_sample(path);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (!new\_song)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Failed\ to\ load\ song:\ \%s\(\backslash\)n"{}},\ path);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ exit(-\/5);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Release\ resources\ of\ the\ previous\ track}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}})\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ al\_destroy\_sample\_instance(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}});}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ al\_destroy\_sample(\mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}});}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Set\ a\ new\ track}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}}\ =\ new\_song;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}}\ =\ al\_create\_sample\_instance(\mbox{\hyperlink{sound_8h_ade5ece41d11b17eb4b972f2bf0f6910b}{song}});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Set\ up\ and\ play\ the\ track}}
+\DoxyCodeLine{00063\ \ \ \ \ al\_set\_sample\_instance\_playmode(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}},\ ALLEGRO\_PLAYMODE\_ONCE);}
+\DoxyCodeLine{00064\ \ \ \ \ al\_set\_sample\_instance\_gain(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}},\ \mbox{\hyperlink{define_8h_a8eb3ef4958b442309868039dbab6f0bf}{volume}});}
+\DoxyCodeLine{00065\ \ \ \ \ al\_attach\_sample\_instance\_to\_mixer(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}},\ al\_get\_default\_mixer());}
+\DoxyCodeLine{00066\ \ \ \ \ al\_play\_sample\_instance(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}});}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sound_8h_a16916c709b3c3542d34a55dd0b3e5f81}{init\_sound}}()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ Reservation\ of\ 4\ slots\ for\ audio\ samples}}
+\DoxyCodeLine{00071\ \ \ \ \ al\_reserve\_samples(4);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Initialization\ of\ the\ random\ number\ generator}}
+\DoxyCodeLine{00074\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//Randomizes\ background\ music}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{sound_8h_a70e1988280d4af23c1e1a6187031ea61}{rand\_sound}}();}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sound_8h_a1890686ce281dfe5d6638e034483d52f}{check\_song\_finished}}()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ current\ track\ is\ finished}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (!al\_get\_sample\_instance\_playing(\mbox{\hyperlink{sound_8h_ae572dbdea486bf303ed756e2a1f30e0b}{songInstance}}))\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sound_8h_a70e1988280d4af23c1e1a6187031ea61}{rand\_sound}}();}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

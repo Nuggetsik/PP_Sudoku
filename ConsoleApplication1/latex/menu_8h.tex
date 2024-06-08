@@ -1,0 +1,71 @@
+\doxysection{menu.\+h File Reference}
+\hypertarget{menu_8h}{}\label{menu_8h}\index{menu.h@{menu.h}}
+{\ttfamily \#include "{}structs.\+h"{}}\newline
+{\ttfamily \#include "{}functions.\+h"{}}\newline
+{\ttfamily \#include "{}define.\+h"{}}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}sound.\+h"{}}\newline
+{\ttfamily \#include $<$allegro5/allegro5.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+font.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$allegro5/allegro\+\_\+image.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{menu_8h_a55615e3056e7d06e4c5f90039cb23799}{SAVE\+\_\+\+FILE}}~"{}save.\+dat"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}{display\+Menu}} (ALLEGRO\+\_\+\+BITMAP \texorpdfstring{$\ast$}{*}background, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} b\+\_\+start, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} b\+\_\+continue, bool continue\+\_\+flag, ALLEGRO\+\_\+\+FONT \texorpdfstring{$\ast$}{*}font, int text\+\_\+width, char \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{menu_8h_a954b4e30239be4e27fa017e9ce397f11}{display\+Diffucult}} (ALLEGRO\+\_\+\+BITMAP \texorpdfstring{$\ast$}{*}background, ALLEGRO\+\_\+\+FONT \texorpdfstring{$\ast$}{*}font, int text\+\_\+width, char \texorpdfstring{$\ast$}{*}text, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} b\+\_\+easy, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} b\+\_\+mid, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} b\+\_\+hard)
+\item 
+void \mbox{\hyperlink{menu_8h_a0964406653eefe0d9a95106a22ec55cf}{check\+Empty\+File}} (bool \texorpdfstring{$\ast$}{*}continue\+\_\+flag)
+\item 
+void \mbox{\hyperlink{menu_8h_aed29d5ad036dae41588231a9c11cc024}{resizing}} (struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}b\+\_\+start, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}b\+\_\+continue, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}b\+\_\+easy, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}b\+\_\+mid, struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}b\+\_\+hard)
+\item 
+int \mbox{\hyperlink{menu_8h_afe50b40f56a09559ba37d8106f30c32c}{menu}} (ALLEGRO\+\_\+\+DISPLAY \texorpdfstring{$\ast$}{*}display, ALLEGRO\+\_\+\+EVENT\+\_\+\+QUEUE \texorpdfstring{$\ast$}{*}event\+\_\+queue)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{menu_8h_a55615e3056e7d06e4c5f90039cb23799}\index{menu.h@{menu.h}!SAVE\_FILE@{SAVE\_FILE}}
+\index{SAVE\_FILE@{SAVE\_FILE}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{SAVE\_FILE}{SAVE\_FILE}}
+{\footnotesize\ttfamily \label{menu_8h_a55615e3056e7d06e4c5f90039cb23799} 
+\#define SAVE\+\_\+\+FILE~"{}save.\+dat"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{menu_8h_a0964406653eefe0d9a95106a22ec55cf}\index{menu.h@{menu.h}!checkEmptyFile@{checkEmptyFile}}
+\index{checkEmptyFile@{checkEmptyFile}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{checkEmptyFile()}{checkEmptyFile()}}
+{\footnotesize\ttfamily \label{menu_8h_a0964406653eefe0d9a95106a22ec55cf} 
+void check\+Empty\+File (\begin{DoxyParamCaption}\item[{bool \texorpdfstring{$\ast$}{*}}]{continue\+\_\+flag}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8h_a954b4e30239be4e27fa017e9ce397f11}\index{menu.h@{menu.h}!displayDiffucult@{displayDiffucult}}
+\index{displayDiffucult@{displayDiffucult}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{displayDiffucult()}{displayDiffucult()}}
+{\footnotesize\ttfamily \label{menu_8h_a954b4e30239be4e27fa017e9ce397f11} 
+void display\+Diffucult (\begin{DoxyParamCaption}\item[{ALLEGRO\+\_\+\+BITMAP \texorpdfstring{$\ast$}{*}}]{background}{, }\item[{ALLEGRO\+\_\+\+FONT \texorpdfstring{$\ast$}{*}}]{font}{, }\item[{int}]{text\+\_\+width}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{text}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}]{b\+\_\+easy}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}]{b\+\_\+mid}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}]{b\+\_\+hard}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8h_a129e6455b112dbc3968f11d7d061e3b4}\index{menu.h@{menu.h}!displayMenu@{displayMenu}}
+\index{displayMenu@{displayMenu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{displayMenu()}{displayMenu()}}
+{\footnotesize\ttfamily \label{menu_8h_a129e6455b112dbc3968f11d7d061e3b4} 
+void display\+Menu (\begin{DoxyParamCaption}\item[{ALLEGRO\+\_\+\+BITMAP \texorpdfstring{$\ast$}{*}}]{background}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}]{b\+\_\+start}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}}}]{b\+\_\+continue}{, }\item[{bool}]{continue\+\_\+flag}{, }\item[{ALLEGRO\+\_\+\+FONT \texorpdfstring{$\ast$}{*}}]{font}{, }\item[{int}]{text\+\_\+width}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{text}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8h_afe50b40f56a09559ba37d8106f30c32c}\index{menu.h@{menu.h}!menu@{menu}}
+\index{menu@{menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily \label{menu_8h_afe50b40f56a09559ba37d8106f30c32c} 
+int menu (\begin{DoxyParamCaption}\item[{ALLEGRO\+\_\+\+DISPLAY \texorpdfstring{$\ast$}{*}}]{display}{, }\item[{ALLEGRO\+\_\+\+EVENT\+\_\+\+QUEUE \texorpdfstring{$\ast$}{*}}]{event\+\_\+queue}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8h_aed29d5ad036dae41588231a9c11cc024}\index{menu.h@{menu.h}!resizing@{resizing}}
+\index{resizing@{resizing}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{resizing()}{resizing()}}
+{\footnotesize\ttfamily \label{menu_8h_aed29d5ad036dae41588231a9c11cc024} 
+void resizing (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}}]{b\+\_\+start}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}}]{b\+\_\+continue}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}}]{b\+\_\+easy}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}}]{b\+\_\+mid}{, }\item[{struct \mbox{\hyperlink{struct_o_b_j_e_c_t}{OBJECT}} \texorpdfstring{$\ast$}{*}}]{b\+\_\+hard}{}\end{DoxyParamCaption})}
+
